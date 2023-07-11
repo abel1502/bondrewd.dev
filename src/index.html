@@ -22,14 +22,15 @@
 
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
-<body class="bg-primary text-primary-text">
-    <nav class="flex flex-row flex-wrap justify-center lg:justify-end items-center py-2 px-3 bg-primary-dark border-b-secondary border-b-2">
+<body class="bg-primary text-contrast font-segoe-ui">
+    <nav class="flex flex-row flex-wrap justify-center lg:justify-end items-center py-2 px-3 bg-primary-dark border-b-tint border-b-2">
         <a href="/">
-            <img class="flex-auto self-start w-20 align-middle flex-shrink" src="/static/images/logo.svg" alt="Bondrewd Logo">
+            <img class="flex-shrink self-start w-20 align-middle" src="/static/images/logo.svg" alt="Bondrewd Logo">
         </a>
-        <a href="/" class="flex-auto text-left text-4xl font-bold pl-4 w-100">
+        <a href="/" class="flex-shrink text-left text-4xl font-bold ml-4 w-100 bg-gradient-to-r from-[#9d22c6] to-[#8343c4] bg-clip-text text-transparent">
             Bondrewd
         </a>
+        <div class="flex-auto"></div>
         <ul class="flex flex-none flex-row flex-wrap justify-end items-center py-2 px-4 text-lg">
             <li class="text-center py-2 px-4 flex-20">
                 <a href="https://bondrewd.readthedocs.io">Docs</a>
@@ -46,7 +47,16 @@
         </ul>
     </nav>
     <main>
-        <h1 class="text-5xl w-100 text-center p-8">Under development</h1>
+        <section class="w-100 max-w-6xl mx-auto p-8 flex flex-row">
+            <p class="text-3xl flex-[0_0_70%]">
+                <span class="font-semibold">Bondrewd</span> is a programming language combining powerful compile-time metaprogramming
+                and optimal runtime performance.
+            </p>
+            <div class="flex-auto"></div>
+        </section>
+        <h1 class="w-100 text-5xl text-center p-8 py-10 bg-primary-light">
+            Under development...
+        </h1>
     </main>
     <footer>
 
