@@ -8,7 +8,7 @@
 
 @layer base {
     section.page-section {
-        @apply w-full lg:px-[15%] py-8;
+        @apply w-full px-4 lg:px-[15%] py-8;
     }
 
     .alt-bg {
