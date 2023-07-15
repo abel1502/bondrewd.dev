@@ -32,8 +32,9 @@ GEM
       safe_yaml (~> 1.0)
       terminal-table (>= 1.8, < 4.0)
       webrick (~> 1.7)
-    jekyll-feed (0.15.1)
-      jekyll (>= 3.7, < 5.0)
+    jekyll-liquify (0.0.2)
+      liquid (>= 2.5, < 5.0)
+      redcarpet (~> 3.1)
     jekyll-postcss-v2 (1.0.1)
     jekyll-sass-converter (3.0.0)
       sass-embedded (~> 1.54)
@@ -56,6 +57,7 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redcarpet (3.6.0)
     rexml (3.2.5)
     rouge (4.1.2)
     safe_yaml (1.0.5)
@@ -80,7 +82,7 @@ PLATFORMS
 DEPENDENCIES
   http_parser.rb (~> 0.6.0)
   jekyll (~> 4.3.2)
-  jekyll-feed (~> 0.12)
+  jekyll-liquify
   jekyll-postcss-v2
   jekyll-seo-tag
   tzinfo (>= 1, < 3)

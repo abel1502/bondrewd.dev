@@ -1,0 +1,9 @@
+<tr class="">
+    {% assign post = include.post -%}
+    <td class="">
+        <p class="text-contrast-less text-right pr-8">{{ post.date | date: "%B&nbsp;%-d" }}</p>
+    </td>
+    <td class="">
+        <a class="text-left hover:underline" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </td>
+</tr>

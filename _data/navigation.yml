@@ -1,0 +1,8 @@
+- name: Docs
+  url: "{{ site.docs_url }}"
+- name: Blog
+  url: "{{ '/blog' | relative_url }}"
+- name: Playground
+  url: ""
+- name: GitHub
+  url: "{{ site.github_url }}"

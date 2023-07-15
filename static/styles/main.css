@@ -4,3 +4,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+    section.page-section {
+        @apply w-full lg:px-[15%] py-8;
+    }
+
+    .alt-bg {
+        @apply bg-primary-light;
+    }
+    
+    #post-list > * td {
+        @apply p-3;
+    }
+
+    #post-body > * a {
+        @apply text-blue-500;
+        @apply no-underline;
+    }
+
+    #post-body > * a:hover {
+        /* @apply text-blue-700; */
+        @apply underline;
+    }
+
+    .highlight-bar {
+        @apply h-1 rounded-sm;
+        @apply bg-tint;
+    }
+}
