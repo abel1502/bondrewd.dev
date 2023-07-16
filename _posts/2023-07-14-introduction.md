@@ -16,7 +16,7 @@ before I'm willing to commit them to the docs, as well as describe the
 established concepts in more detail. 
 
 It is important to note that Bondrewd is still in its infancy, with only the
-parser _(or rather, a custom parser generator and a grammar definiton for it)_
+parser _(or rather, a custom parser generator and a grammar definition for it)_
 and the AST being implemented so far. I'm currently mostly occupied with
 figuring out the particularities of the language's design, in order to ensure
 perfection for the core part as early as possible. I have, in fact, accumulated
