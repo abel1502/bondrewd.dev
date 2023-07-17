@@ -5,7 +5,7 @@ author: Andrew Belyaev
 ---
 
 Hi! I'm Andrew, or [@abel1502](https://github.com/abel1502), as you might
-know me. I'll start by pointing out that I'm not a good writer nor
+know me. I'll start by pointing out that I'm neither a good writer nor
 a front-end dev. I'm currently a 4th year student at
 [MIPT](https://mipt.ru/english/), studying computer science. I've recently taken
 up creating the Bondrewd programming language, to which this site is dedicated.
