@@ -1,6 +1,6 @@
 ---
 title: "The Zen of Bondrewd"
-date: 2023-07-16 00:00:00 +0300
+date: 2023-07-17 22:00:00 +0300
 author: Andrew Belyaev
 ---
 
@@ -80,5 +80,33 @@ been appropriate for a Zen, but I guess I'll keep the name as is._
   facilitating the discouraged approach. This way, the programmer is drawn
   to the "right" way, but is still free to choose any other if they know
   what they're doing.
-- <span class="text-green-600">... TODO</span>
+- **Maintain familiarity to programmers**  
+  While a radical or novel approach is usually the core of a language's
+  identity, it also acts as a barrier to entry. Bondrewd already has a set
+  of defining ideas, so it should try to avoid pointless deviations in other
+  areas. In particular, this implies a syntax in large parts borrowed from
+  other languages _(mostly Rust, and in some cases Python, at least at the
+  time of writing)_. I should, however, point out, that in cases where some
+  syntax or semantics could be slightly adjusted for a sufficient increase
+  in generality and composability, such changes should definitely be considered.
+- **Don't violate programmer expectations**  
+  _Unless they originate in bad habits, maybe._ The idea here is that a simple
+  and flexible language should be predictable by default thanks to high
+  composability and regular internal structure following the same rules as
+  user code. This property is very prominent in Python, which is one of my
+  favorite aspects of that language. Really, this rule can be paraphrased as
+  _"avoid making exceptions"_.
+- <sub>_This is a stupid one, but_</sub> **Insert a few Made in Abyss references
+  here and there**  
+  Since I have already named the language after a character from the series,
+  I feel compelled to include a few references to it as well. As of right now,
+  you may have already noticed that the packages are referred to as
+  "cartridges", and I'm thinking of referring to the root-of-all-namespaces,
+  to which all cartridges belong, as a "backpack". Another cool idea has been
+  suggested, but I won't specify it here to avoid spoiling the series for
+  those who haven't watched it yet. _(I highly recommend it, by the way!)_
+- <span class="text-green-600">TODO?...</span> -- maybe there's something
+  crucial that I forgot to mention. If that turns out to be the case, I'll
+  add it here. This is also your chance to propose a core principle to the
+  language while it's still in its infancy.
 - The Zen of Python _mostly_ applies too &#x1F609;
