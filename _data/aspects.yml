@@ -1,0 +1,39 @@
+- header: Flexibile
+  description: >-
+    Bondrewd's unique approach to compile-time execution allows for incredible
+    flexibility at compile time. The language constructs and the build process
+    can be influenced from within the same code. The
+    {{ site.shukufuku_translation }} model of treating the program as its own
+    compilation script brings Python's levels of expressiveness and dynamicity
+    to compile-time Bondrewd.
+- header: Performant
+  description: >-
+    Bondrewd is statically typed with no runtime overhead by default. You can
+    expect your Bondrewd programs to be as fast as if they were written in C++
+    or Rust. At the same time you have fine control over the resulting
+    executable, allowing you to consciously trade performance for other
+    desirable properties.
+- header: Uniform
+  description: >-
+    Bondrewd is made to be internally consistent and predictable. There are
+    minimal special cases and exceptions, even for core language features. This
+    means that the language itself operates by the same principles as the
+    programs written in it, making it easy to reason about reflection and
+    metaprogramming.
+- header: General-Purpose
+  description: >-
+    Bondrewd is a general-purpose programming language. Its doesn't impose
+    arbitrary limitations, and its flexiblility allows it to be adapted to
+    any specific domain.
+- header: Familiar
+  description: >-
+    Bondrewd doesn't try to reinvent the wheel. It takes inspiration from
+    existing languages, adopting the good ideas and avoiding the bad ones.
+    This, along with its simple and uniform design, makes it easy to learn for
+    anyone with prior programming experience.
+- header: Cross-Platform
+  description: >-
+    Thanks to Bondrewd's compile-time flexibility, targeting different
+    platforms is a library-level task. It is easy to introduce support for
+    an obscure architecture or operating system, and it is even possible to
+    target multiple platforms in different parts of the same program.
