@@ -23,6 +23,12 @@ module.exports = {
                 "fira-sans": ["Fira Sans", "sans-serif"],
                 "segoe-ui": ["Segoe UI", "sans-serif"],
             },
+            typography: (theme) => ({
+                DEFAULT: {
+                    css: {
+                    },
+                },
+            }),
         },
     },
     darkMode: 'class',

@@ -7,6 +7,7 @@
 
 
 @layer base {
+    /* Base page sections */
     section.page-section {
         @apply w-full px-4 lg:px-[15%] py-8 even:alt-bg;
     }
@@ -15,10 +16,12 @@
         @apply bg-primary-light;
     }
     
+    /* Post list table padding */
     #post-list > * td {
         @apply p-3;
     }
 
+    /* Post body links */
     #post-body > * a {
         @apply text-blue-500;
         @apply no-underline;
@@ -29,11 +32,20 @@
         @apply underline;
     }
 
+    /* Remove tailwindcss-typography code backticks */
+    .prose.prose-clearcode :where(code):not(:where([class~="not-prose"] *))::before {
+        content: '';
+    }
+    .prose.prose-clearcode :where(code):not(:where([class~="not-prose"] *))::after {
+        content: '';
+    }
+    /* A highlight bar (under blog post titles) */
     .highlight-bar {
         @apply h-1 rounded-sm;
         @apply bg-tint;
     }
 
+    /* Button */
     .btn {
         @apply text-center font-bold rounded disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2;
     }
@@ -48,5 +60,10 @@
 
     .btn-3d.btn-purple {
         @apply border-purple-900;
+    }
+
+    /* Underlined link */
+    .underline-link {
+        @apply underline hover:no-underline;
     }
 }
