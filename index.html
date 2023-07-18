@@ -14,23 +14,21 @@ layout: default
     </div>
 </section>
 
-<!--
-<section class="page-section alt-bg">
-    <h1 class="text-4xl text-left font-semibold mb-6">
-        Key Features
+<section class="page-section">
+    <h1 class="text-4xl text-left font-semibold mb-8">
+        Key Aspects of Bondrewd
     </h1>
-    <div class="block lg:flex lg:flex-row lg:justify-between lg:space-x-4">
-        {% for item in site.data.features %}
-            <div class="py-2 lg:py-0">
-                <h2 class="text-3xl font-semibold">{{ item.header }}</h2>
-                <p class="text-xl">{{ item.description }}</p>
-            </div>
-        {% endfor %}
+    <div class="grid grid-cols-3 gap-8 items-stretch">
+        {% for item in site.data.aspects -%}
+            <section class="py-2 lg:py-0 col-span-full lg:col-auto">
+                <h2 class="text-3xl font-semibold mb-3">{{ item.header }}</h2>
+                <p class="text-xl prose dark:prose-invert">{{ item.description }}</p>
+            </section>
+        {% endfor -%}
     </div>
 </section>
--->
 
-<section class="page-section alt-bg">
+<section class="page-section">
     <h1 class="text-5xl text-center">
         Under development...
     </h1>
