@@ -35,6 +35,7 @@ plugins:
   - jekyll-postcss-v2
   - jekyll-seo-tag
   - jekyll-liquify
+  - jekyll-pages-directory
 
 defaults:
   - scope:

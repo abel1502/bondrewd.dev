@@ -35,6 +35,8 @@ GEM
     jekyll-liquify (0.0.2)
       liquid (>= 2.5, < 5.0)
       redcarpet (~> 3.1)
+    jekyll-pages-directory (1.0.0)
+      jekyll (>= 3.7, < 5.0)
     jekyll-postcss-v2 (1.0.1)
     jekyll-sass-converter (3.0.0)
       sass-embedded (~> 1.54)
@@ -83,6 +85,7 @@ DEPENDENCIES
   http_parser.rb (~> 0.6.0)
   jekyll (~> 4.3.2)
   jekyll-liquify
+  jekyll-pages-directory
   jekyll-postcss-v2
   jekyll-seo-tag
   tzinfo (>= 1, < 3)
