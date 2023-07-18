@@ -19,7 +19,7 @@
     <div class="flex-auto"></div>
     <ul class="flex flex-none flex-row flex-wrap justify-end items-center py-2 px-4 text-lg">
         {% for item in site.data.navigation %}
-            <li class="text-center py-2 px-4 flex-20">
+            <li class="text-center py-2 px-4 flex-auto">
                 <a href="{{ item.url | liquify }}" {% if item.url == empty %}onclick="alert('Not yet implemented, sorry');"{% endif %}>
                     {{ item.name }}
                 </a>
