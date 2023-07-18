@@ -62,7 +62,7 @@ been appropriate for a Zen, but I guess I'll keep the name as is._
   most flexibility at compile-time is to treat the program not as a
   declarative definition, but as imperative instruction for what the compiled
   binary should contain. For semi-arbitrary reasons, I have dubbed this
-  approach <dfn title='&#x795D;&#x798F;, jap. "Blessing"'>Shukufuku</dfn>.
+  approach {{ site.shukufuku_translation }}.
   Theoretically, any interpreted language could implement this, but since
   Bondrewd is designed with it in mind, it provides specific syntax for
   runtime code literals (i.e. functions, and generally everything

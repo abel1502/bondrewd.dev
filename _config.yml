@@ -29,7 +29,9 @@ github_username: abel1502
 github_url: https://github.com/abel1502/bondrewd
 docs_url: https://bondrewd.readthedocs.io/
 
-# theme: minima
+# TODO: dfn?
+shukufuku_translation: <abbr title='&#x795D;&#x798F;, jap. "Blessing"'>Shukufuku</abbr>
+
 
 plugins:
   - jekyll-postcss-v2
