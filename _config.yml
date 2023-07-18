@@ -51,7 +51,7 @@ defaults:
       subheader_link: "/blog"
 
 feed:
-  path: /blog/feed.xml
+  path: "/blog/feed.xml"
   # disable_in_development: true
 
 # Exclude from processing.
@@ -72,6 +72,7 @@ exclude:
   - .github
   - .git
   - package*.json
+  - "*.ps1"
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
