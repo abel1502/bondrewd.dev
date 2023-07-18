@@ -14,7 +14,45 @@ Pegen++ generates C++ code, and is specifically designed with Bondrewd's
 internals in mind. It should, however, be feasible to convert it for use in
 another C++ project with minimal effort.
 
-<!-- TODO: Explain PEG, its benefits and the metagrammar
-    (along with the differences in it) -->
+As is evident from the name, Pegen++ operates on PEG grammars. A PEG grammar
+is almost the same as a context-free grammar, except that all choices are
+ordered. This effectively makes every PEG grammar unambiguous, which is a
+desirable property for a parser generator. The generated parsers are
+recursive-descent with packrat caching. This results in performance similar
+to an LL(1) parser, while avoiding the issues of LL(1) grammars. Pegen in
+particular also features special support for left-recursion, which is
+otherwise an issue for most kinds of parsers. A lot of information about PEG
+parsers in general and Pegen in particular are available in the
+[PEP 617](https://peps.python.org/pep-0617/). Pegen++ differs from Pegen
+mostly just in support for C++, but also in some other minor details. For
+example, Pegen++ allows rules to have empty bodies, and also allows to specify
+additional code to be added to the generated parser class.
 
-<!-- TODO: Also cover ASDL++ -->
+Pegen++ isn't distributed as a standalone package due to being tightly coupled
+with Bondrewd's internals. However, its source code is available in the Bondrewd
+[repository](https://github.com/abel1502/bondrewd/tree/master/tools/pegen++).
+
+While I'm at it, I should also mention another tool used in Bondrewd, which is
+aptly named ASDL++. It is based on ASDL, which is also used in CPython. ASDL
+is a language for describing abstract syntax trees, and a tool for generating
+corresponding code. ASDL works with CPython's C representation of ASTs via
+macros and functions. ASDL++ works with Bondrewd's C++ representation of ASTs
+via classes and variants. ASDL++ also supports in-place declaration of aliases
+and extension code. source code is available in the Bondrewd
+[repository](https://github.com/abel1502/bondrewd/tree/master/tools/asdl++)
+as well. 
+
+Those tools, along with the grammar and AST definitions and some supporting
+code such as the lexer and some AST utilities, constitute the part of Bondrewd
+written so far. The next step is to implement the `ctime` language core --
+the C++ representation of a compile-time object, the built-in objects with
+self-referential definitions, and the compile-time evaluation engine. I'd
+argue this is probably the hardest part to design (which is my excuse to have
+been stuck on it for over a month already). I'll most likely dedicate the next
+post to that, so stay tuned.
+
+_On a side note, there's now an RSS feed for this blog, so you can subscribe to
+it if you want to be notified of new posts. Also, to the select few people
+reading this blog this July -- I love you, and thanks for the early support
+of the language. Remind me to put you in a thanks list when I end up writing
+one._
