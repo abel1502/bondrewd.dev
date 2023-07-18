@@ -38,6 +38,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-liquify
   - jekyll-pages-directory
+  - jekyll-feed
 
 defaults:
   - scope:
@@ -48,6 +49,10 @@ defaults:
       permalink: "/blog/:categories/:year-:month-:day-:title"  # :output_ext
       subheader: "Blog"
       subheader_link: "/blog"
+
+feed:
+  path: /blog/feed.xml
+  # disable_in_development: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.

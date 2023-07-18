@@ -1,8 +1,13 @@
 <footer class="bg-primary-dark p-8 lg:px-16">
     <div>
-        &copy; 2023 Andrew Belyaev.
+        &copy; {{ "now" | date: "%Y" }} Andrew Belyaev.
     </div>
     <div>
-        Contact me: <a href="mailto:admin@bondrewd.dev" class="underline hover:no-underline">admin@bondrewd.dev</a>
+        Contact me: <a href="mailto:admin@bondrewd.dev" class="underline-link">admin@bondrewd.dev</a>
     </div>
+    {% if page.subfooter -%}
+    <div>
+        {{ page.subfooter | liquify }}
+    </div>
+    {%- endif %}
 </footer>
