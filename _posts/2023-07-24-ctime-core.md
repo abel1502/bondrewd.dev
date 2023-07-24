@@ -154,6 +154,21 @@ Here are some of the core parts on the language and my ideas about them:
   birds with one stone and employ the left `&` as a customizable operator with
   no default meaning in `ctime`, and then define it for `Type` to mean taking
   a `ref`...
+- **Structs**. Generally, the only special thing about structs is instance
+  attribute access (`.` vs `::` for proper attributes). I'd say this is
+  comfortably implemented via a trait (like ones for operator overloading, no
+  magic). However, that leaves the question of where the data goes. Using a
+  single proper attribute has the caveat of deferring the same issue down
+  a level. Using a tuple wouldn't work because tuples are immutable by design.
+  Using a proper attribute per field would work, but I'm considering some
+  potential optimizations like what Python did with `__slots__`. If structs do
+  end up receiving some special treatment, it might be worth it to employ them
+  for the basic meta-types.
+- **Enums**. This will most likely be used a lot for near-fundamental code.
+  For instance, it only makes sense to implement `bool` as an enum. I'm aiming
+  for Rust-like enums, i.e. tagged variants. In Rust, this comes with some
+  syntactic sugar, but I feel like there's room for improvement there. I'm not
+  sure what special treatment, if any, I should give to enums to achieve that.
 
 As you can probably see, the issue is not really anything specific, but rather
 the general uncertainty... If you have a strong opinion on anything mentioned
@@ -175,3 +190,5 @@ out the Oils project. It consists of a bash-compatible shell and a legacy-free
 one, both of which are written in Python and transpiled to C++. Turns out, we
 both rely on custom-tailored versions of the same parser stack (Pegen and ASDL),
 which I've described in the [last post]({% post_url 2023-07-18-pegen++ %})._
+
+_UPDATE: Added sections on structs and enums._
