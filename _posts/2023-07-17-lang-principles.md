@@ -110,3 +110,159 @@ been appropriate for a Zen, but I guess I'll keep the name as is._
   add it here. This is also your chance to propose a core principle to the
   language while it's still in its infancy.
 - The Zen of Python _mostly_ applies too &#x1F609;
+
+<!--
+TODO: Update about the similarity and distinctions between rtime and ctime
+languages, based on the discussion with Andy Chu.
+
+The full discussion, for reference:
+
+https://www.reddit.com/r/ProgrammingLanguages/comments/155t03q/comment/jt83vp9/?utm_source=share&utm_medium=web2x&context=3
+
+> abel1502r
+I'm writing my bootstrap compiler in C++, but all of my code generation tools
+so far are written in python. Jinja templates are far better for this than any
+other alternatives I've seen, especially when you need extensive calculations
+behind the scene to generate the payload. Here's a link, if you're interested.
+asdl++ generates the AST classes, pegen++ generates the parser and tokens
+generates the lexing automatas and some related enums
+
+
+> oilshell:
+Ha cool! Oils is using both ASDL and pgen2 with C++ back ends as well. It's
+been all over the blog, not particularly organized, but I may write up an
+architecture description later:
+
+https://www.oilshell.org/blog/2022/03/middle-out.html
+
+https://www.oilshell.org/blog/tags.html?tag=ASDL#ASDL
+
+I've indeed found it useful to borrow metalanguages from Python itself. Also
+MyPy has been very useful.
+
+I took at look at https://bondrewd.readthedocs.io/en/latest/ , seems interesting
+
+I have a long-term idea to do something similar. Oils is made faster via a
+translator from statically typed Python to C++ called "mycpp". And we have our
+own runtime for mycpp.
+
+There are some cool parts of the runtime that I would like to expose to users
+eventually. Basically "hoisting" our tools up to the user level.
+
+The funny thing is that it naturally leads to an architecture where you have a
+"YSH" for metaprogramming a faster language "Tea".
+It would basically be like if:
+
+shell was a good language
+
+the C preprocessor and shell were the SAME language (they are kinda similar if
+you squint?)
+
+So you have a single good dynamic language for metaprogramming a fast language
+
+Anyway, if you want a bunch of real use cases for compile-time metaprogramming,
+we have many. We use textual code generation, with 3 major code generators and
+maybe 7 minor ones, but it would be nice if the metalanguage had real
+compile-time execution.
+
+
+> abel1502r:
+Cooperating with Oils would be cool, but I fear it's still quite a distant
+goal. At the moment, I'm stuck on properly designing ang implementing the
+compile-time language's self-referential core (i.e., what CPython does for
+type and object, except with traits and a lot of other nuances). Recently,
+I've been excusing my procrastination with this by focusing on the language's
+website, which, by the way, has a blog with somewhat more up-to date
+information on the language than the docs. I'm actually writing a post on
+the aforementioned issue and the related concepts right now.
+
+I do like the ideas, though, (both of putting Bondrewd to good use for
+metaprogramming in an existing project, and of tighter interactions between
+the shell and a metaprogramming language), and will absolutely look into them
+after reaching a sufficient working prototype
+
+
+> oilshell:
+Cool, I checked out the blog posts
+
+I'm excited for your journey :) IMO the beginning is the most fun part of
+making a language -- you can explore anything
+
+Now that I've been doing this for over 7 years, I'm still having fun, but I
+have to resist the urge to go on tangents :)
+
+One thing I find interesting is whether the metaprogramming language is the
+same as the language, or different
+
+For a compiled language, there are some big tradeoffs there
+(e.g. memory management and safety)
+
+It makes me think of Lua/Terra as well -- I remember there was a great research
+paper on the system, but the gap between research and production is VERY large
+
+https://erikmcclure.com/blog/a-rant-on-terra/
+
+
+> abel1502r:
+Thanks!
+
+I've conducted a lot of mental experiments relating to this, and have come to
+these conclusions:
+
+The compile-time and run-time languages are intertwined -- for ctime code,
+rtime definitions are really just a special kind of literals, and for rtime
+code, ctime code can be embedded all over the place (like a text template, but
+semantic instead of textual)
+
+As much as possible should be common between the two languages. I almost want
+to say they should be the same, but there are a few significant caveats[1]
+
+The user must clearly realize the distinction between the two, even if they
+were identical in terms of syntax and semantics, because of their different
+roles towards each other.
+
+The ctime language should support itself in the same way it does to the rtime
+language
+
+Because of that, I'll say they are different languages, but are designed with
+this specific interoperation in mind. The grammar is actually the same, but,
+for instance, the value semantics are different. For rtime, each value is
+uniquely owned by something, whereas for ctime values are shared with reference
+counting. This, on the one hand, aims to better fit the underlying platform,
+but also resolves some otherwise confusing moments (see below).
+
+[1]: For example, types are regular ctime objects (both for rtime and ctime).
+If they were subject to the same ownership semantics as runtime values, the
+construct `let a: uint4 = 1` would either move or copy the global uint4. Move
+is obviously undesirable. Copy seems fine at first glance, but demanding all
+types be trivially copyable has its issues. It would mean types cannot have
+proper attributes, because those would be tied to a specific copy, rather than
+the type itself. So, defining something like `uint4::MAX` would only affect the
+following usages of the type, but not the already processed ones.
+The alternative is to demand explicit passing by reference, however
+`let a: &uint4 = 1` would be extremely confusing.
+
+Another inevitable semantic difference is forward references. While for rtime
+code those could be automatically resolved at compile-time, for ctime code
+this would be computationally inefficient, confusing and often impossible.
+So instead I chose to do what Python does, requring everything to be defined
+by the time of first usage.
+
+Appropriate rtime code can still be interpreted at ctime for the purposes of
+constant-folding and inlining. This, however, has to be done consciously, to
+avoid confusion about the boundaries between rtime and ctime. Probably, rtime
+code will also be able to interact with ctime constructs through a specific
+interface, similar to how Python allows C extension libraries.
+
+As for Terra, this is the first time I've heard of it, and its premise does
+seem quite similar to Bondrewd's. I'll look into it in more detail, to
+hopefully learn from their experience if there's something I'm doing severely
+wrong. However, I like to think I've avoided some of the more severe issues
+they have, according to that blogpost. I've actually considered just making a
+Python library to simplify writing programs as compilation scripts, but have
+decided against it. While both Lua and Python are self-implemented (if observed
+from within the language), the runtime language on top of them would have to be
+integrated into the same mechanism in order to be sufficiently uniform, and
+that would make it poorly suited for performance-sensitive runtime evaluation
+
+-->
