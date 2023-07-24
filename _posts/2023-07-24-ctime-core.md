@@ -1,6 +1,6 @@
 ---
 title: Compile-time language core
-# date: 2023-07-## ##:00:00 +0300
+date: 2023-07-24 18:00:00 +0300
 author: Andrew Belyaev
 ---
 
