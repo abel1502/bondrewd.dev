@@ -1,13 +1,13 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import("tailwindcss").Config} */
 module.exports = {
     content: [
-        './_drafts/**/*.{html,md}',
-        './_includes/**/*.{html,md}',
-        './_layouts/**/*.{html,md}',
-        './_posts/**/*.{html,md}',
-        // A bit overboard, but just to be sure
-        './*.{html,md}',
-        // './static/styles/*.css',
+        "./_pages/**/*.{html,md}",
+        "./_includes/**/*.{html,md}",
+        "./_layouts/**/*.{html,md}",
+        "./_posts/**/*.{html,md}",
+        "./_drafts/**/*.{html,md}",
+        "./*.{html,md}",
+        // "./static/styles/*.css",
     ],
     theme: {
         extend: {
@@ -31,9 +31,9 @@ module.exports = {
             }),
         },
     },
-    darkMode: 'class',
+    darkMode: "class",
     plugins: [
-        require('@tailwindcss/typography'),
+        require("@tailwindcss/typography"),
     ],
 }
 
