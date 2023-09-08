@@ -22,7 +22,7 @@ layout: default
         {% for item in site.data.aspects -%}
             <section class="py-2 lg:py-0 col-span-full lg:col-auto">
                 <h2 class="text-3xl font-semibold mb-3">{{ item.header }}</h2>
-                <p class="text-xl prose dark:prose-invert">{{ item.description }}</p>
+                <p class="text-xl prose dark:prose-invert">{{ item.description | liquify }}</p>
             </section>
         {% endfor -%}
     </div>
